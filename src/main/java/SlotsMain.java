@@ -1,7 +1,8 @@
-import java.sql.SQLOutput;
+package src.main.java;
+
 import java.util.Random;
 
-public class SlotsCasino {
+public class SlotsMain {
     public static void main (String[] args){
         Random random = new Random();
 
@@ -18,9 +19,4 @@ public class SlotsCasino {
         System.out.println("|" + Winners[column1] + "|" + Winners[column2] + "|" + Winners[column3] + "|");
 
     }
-
-    public void play(){
-
-    }
-
 }
