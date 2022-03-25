@@ -5,22 +5,66 @@ import java.util.Random;
 
 public class SlotsCasino {
 
-        static Random random = new Random();
-        static int column1;
-        static int column2;
-        static int column3;
-
-        String[] Winners = {"Black Panther", "Iron Man", "Captain America","The Hulk","Thor","Spider-man","Thanos"};
-//        column1 = random.nextInt(Winners.length-1);
-//        column2 = random.nextInt(Winners.length-1);
-//        column3 = random.nextInt(Winners.length-1);
-
-//        System.out.println("|" + Winners[column1] + "|" + Winners[column2] + "|" + Winners[column3] + "|");
+        private static Random random = new Random();
+        private static int column1;
+        private static int column2;
+        private static int column3;
+        private static String[] winners = {"Black Panther", "Iron Man", "Captain America","The Hulk","Thor","Spider-man","Thanos"};
 
 
+
+    public static void spinReels(){
+        column1 = random.nextInt(winners.length-1);
+        column2 = random.nextInt(winners.length-1);
+        column3 = random.nextInt(winners.length-1);
+    }
+
+    public static void play(){
+        System.out.println(getWelcomeMessage());
+        spinReels();
+        System.out.println(getSlotResultsMessage());
+        analyzeResults();
+    }
+
+    public static void analyzeResults(){
+        boolean isMatched = column1 == column2 && column1 == column3;
+        if (isMatched){
+            System.out.println("You won, you got all" + column1 + "'s");
+        }
+        else{
+            System.out.println(getLosingMessage());
+        }
+    }
 
     public static String getWelcomeMessage() {
        return "Welcome to the Slots game!\nAre you feeling lucky?";
     }
 
+    public static String getLosingMessage() {
+        return "Guess you weren't as lucky as you thought.\nOr are you? Try again?";
+    }
+
+    public static String getSlotResultsMessage(){
+        return "| " + winners[column1] + " | " + winners[column2] + " | " + winners[column3] + " |";
+    }
+
+    public static Random getRandom() {
+        return random;
+    }
+
+    public static int getColumn1() {
+        return column1;
+    }
+
+    public static int getColumn2() {
+        return column2;
+    }
+
+    public static int getColumn3() {
+        return column3;
+    }
+
+    public static String[] getWinners() {
+        return winners;
+    }
 }
