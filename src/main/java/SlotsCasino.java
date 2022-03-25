@@ -10,6 +10,7 @@ public class SlotsCasino {
         private static int column2;
         private static int column3;
         private static String[] winners = {"Black Panther", "Iron Man", "Captain America","The Hulk","Thor","Spider-man","Thanos"};
+        private static Integer[] payout = {100, 50, 200, 250, 150, 150, 0};
 
 
 
@@ -29,16 +30,26 @@ public class SlotsCasino {
     public static void analyzeResults(){
         boolean isMatched = column1 == column2 && column1 == column3;
         if (isMatched){
-            System.out.println("You won, you got all" + column1 + "'s");
+            System.out.println(getWinningMessage());
         }
         else{
             System.out.println(getLosingMessage());
         }
     }
 
+    public static Integer determinePayout(){
+        return payout[column1];
+    }
+
     public static String getWelcomeMessage() {
        return "Welcome to the Slots game!\nAre you feeling lucky?";
     }
+
+    public static String getWinningMessage() {
+        return "You got all " + winners[column1] + ".\n" +
+                "Also your payout is: $" + determinePayout() + ".";
+    }
+
 
     public static String getLosingMessage() {
         return "Guess you weren't as lucky as you thought.\nOr are you? Try again?";
