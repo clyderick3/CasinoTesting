@@ -53,4 +53,5 @@ public class SlotsCasinoTest {
         }
         Assert.assertTrue(valueChanged);
     }
+
 }

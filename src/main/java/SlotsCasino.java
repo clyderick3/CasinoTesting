@@ -9,10 +9,11 @@ public class SlotsCasino {
         private static int column1;
         private static int column2;
         private static int column3;
+        private static int balance = 100; //make it so every bet wages 25.
         private static String[] winners = {"Black Panther", "Iron Man", "Captain America","The Hulk","Thor","Spider-man","Thanos"};
-        private static Integer[] payout = {100, 50, 200, 250, 150, 150, 0};
+        private static Integer[] payout = {500, 200, 100, 50, 150, 150, 0}; //Casino payout is like Monopoly payout.
 
-
+// Add bets after Are you feeling lucky. Add play again option.
 
     public static void spinReels(){
         column1 = random.nextInt(winners.length-1);
@@ -22,9 +23,11 @@ public class SlotsCasino {
 
     public static void play(){
         System.out.println(getWelcomeMessage());
+        //while isPlaying. --------
         spinReels();
         System.out.println(getSlotResultsMessage());
         analyzeResults();
+        //end while isPlaying.
     }
 
     public static void analyzeResults(){
