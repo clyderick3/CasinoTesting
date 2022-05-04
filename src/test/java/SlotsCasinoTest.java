@@ -1,8 +1,5 @@
-package src.test.java;
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import src.main.java.SlotsCasino;
 
 public class SlotsCasinoTest {
 
